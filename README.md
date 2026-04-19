@@ -22,22 +22,22 @@ Built entirely with local, open-source models — no paid APIs required.
 
 ## Architecture
 User Question
-│
-▼
-Router (Mistral)
-│
-┌───┴────────────┐
-▼                ▼
+      │
+      ▼
+  Router (Mistral)
+      │
+  ┌───┴────────────┐
+  ▼                ▼
 Document          Data
 Pipeline          Pipeline
-│                │
-├─ Embedder      ├─ SQL Generator
-├─ Qdrant        ├─ SQLite
-├─ BM25          └─ Explainer
-└─ Generator
-│
-▼
-Streamlit UI
+  │                │
+  ├─ Embedder      ├─ SQL Generator
+  ├─ Qdrant        ├─ SQLite
+  ├─ BM25          └─ Explainer
+  └─ Generator
+      │
+      ▼
+  Streamlit UI
 
 ---
 
