@@ -119,30 +119,28 @@ python -m streamlit run app.py
 
 ---
 
+
 ## Project Structure
-financial-rag/
-├── src/
-│   ├── loader.py           # PDF ingestion
-│   ├── chunker.py          # Text splitting with overlap
-│   ├── embedder.py         # Vector embeddings
-│   ├── indexer.py          # Qdrant storage & search
-│   ├── retriever.py        # Hybrid BM25 + vector search
-│   ├── generator.py        # Mistral answer generation
-│   ├── router.py           # Query routing
-│   ├── sql_generator.py    # Text-to-SQL generation
-│   ├── data_qa.py          # GL data Q&A pipeline
-│   └── db.py               # Database connection
-├── evaluation/
-│   ├── evaluate.py         # RAGAs evaluation
-│   ├── test_questions.py   # Test dataset
-│   ├── generate_training_data.py  # Synthetic data generation
-│   └── finetune_embedder.py       # Embedding fine-tuning
-├── data/
-│   └── generate_gl_data.py # Synthetic GL data generation
-├── tests/                  # Development test scripts
-├── app.py                  # Streamlit UI
-├── ingest.py               # Document ingestion script
-└── requirements.txt
+
+| File | Description |
+|------|-------------|
+| `app.py` | Streamlit UI — main entry point |
+| `ingest.py` | Document ingestion script |
+| `src/loader.py` | PDF ingestion with PyMuPDF |
+| `src/chunker.py` | Text splitting with overlap |
+| `src/embedder.py` | Vector embeddings with sentence-transformers |
+| `src/indexer.py` | Qdrant vector storage and search |
+| `src/retriever.py` | Hybrid BM25 + vector search |
+| `src/generator.py` | Mistral answer generation |
+| `src/router.py` | Automatic query routing |
+| `src/sql_generator.py` | Text-to-SQL generation |
+| `src/data_qa.py` | GL data Q&A pipeline |
+| `src/db.py` | SQLite database connection |
+| `evaluation/evaluate.py` | RAGAs evaluation framework |
+| `evaluation/test_questions.py` | Test question dataset |
+| `evaluation/generate_training_data.py` | Synthetic training data generation |
+| `evaluation/finetune_embedder.py` | Embedding fine-tuning |
+| `data/generate_gl_data.py` | Synthetic GL data generation |
 
 ---
 
