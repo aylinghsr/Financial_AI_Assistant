@@ -21,24 +21,21 @@ Built entirely with local, open-source models — no paid APIs required.
 ---
 
 ## Architecture
-User Question
-      │
-      ▼
-  Router (Mistral)
-      │
-  ┌───┴────────────┐
-  ▼                ▼
-Document          Data
-Pipeline          Pipeline
-  │                │
-  ├─ Embedder      ├─ SQL Generator
-  ├─ Qdrant        ├─ SQLite
-  ├─ BM25          └─ Explainer
-  └─ Generator
-      │
-      ▼
-  Streamlit UI
-
+```mermaid
+flowchart TD
+    A[User Question] --> B[Router - Mistral]
+    B --> C[Document Pipeline]
+    B --> D[Data Pipeline]
+    C --> E[Embedder]
+    C --> F[Qdrant Vector DB]
+    C --> G[BM25 Search]
+    C --> H[Generator - Mistral]
+    D --> I[SQL Generator]
+    D --> J[SQLite GL Database]
+    D --> K[Explainer - Mistral]
+    H --> L[Streamlit UI]
+    K --> L
+```
 ---
 
 ## Tech Stack
