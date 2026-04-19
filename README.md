@@ -1,60 +1,23 @@
-# 📊 Financial AI Assistant
+# Financial AI Assistant
 
-A hybrid AI system that answers questions over:
+A production-grade RAG (Retrieval-Augmented Generation) system for querying financial regulatory documents and GL accounting data using natural language.
 
-- 📄 Financial regulatory documents (Basel III)
-- 🗄️ Structured financial data (GL database)
+Built entirely with local, open-source models — no paid APIs required.
 
-## 🚀 Features
+![Python](https://img.shields.io/badge/Python-3.10+-blue)
+![Mistral](https://img.shields.io/badge/LLM-Mistral%207B-orange)
+![Qdrant](https://img.shields.io/badge/VectorDB-Qdrant-red)
 
-- Hybrid routing (Document RAG vs SQL)
-- Vector search with Qdrant
-- BM25 + embedding retrieval
-- Text-to-SQL pipeline
-- Automatic evaluation framework
-- Streamlit UI with charts and insights
+---
 
-## 🧠 Architecture
+## What it does
 
-User Query  
-→ Router (DATA vs DOCUMENT)  
-→  
-- DOCUMENT → Retriever → Generator (RAG)  
-- DATA → SQL Generator → SQLite → Answer  
+**Document Q&A** — Ask questions about financial regulatory documents (Basel III, BaFin circulars) and get precise answers with page citations.
 
-## 📊 Example Questions
+**GL Data Q&A** — Ask natural language questions about General Ledger data and get SQL-backed answers with visualisations.
 
-### Document
-- What is the minimum CET1 capital ratio?
-- What is the Liquidity Coverage Ratio?
+**Automatic routing** — The system detects whether your question is about documents or data and routes it to the right pipeline automatically.
 
-### Data
-- What is the total amount by entity?
-- How many transactions are there for Solaris SE?
-- Show monthly balances for gl_number 1300
+---
 
-## 📈 Evaluation
-
-- Pipeline accuracy: 100% (9/9 basic tests)
-- Extended evaluation: ~91% (11-test suite)
-- Includes:
-  - routing accuracy
-  - SQL validation
-  - exact numeric checks
-  - retrieval validation
-  - edge cases
-
-## 🛠 Tech Stack
-
-- Python
-- Streamlit
-- Qdrant
-- SentenceTransformers
-- SQLite
-- Ollama (Mistral)
-
-## ▶️ Run locally
-
-```bash
-pip install -r requirements.txt
-streamlit run app.py
+## Architecture

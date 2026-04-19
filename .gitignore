@@ -1,27 +1,25 @@
 # Python
+venv/
 __pycache__/
 *.pyc
 *.pyo
-*.pyd
+.Python
 
-# Virtual environments
-venv/
-.env/
-
-# Streamlit
-.streamlit/
-
-# Data
-data/*.db
-
-# Qdrant storage
+# Data and models (too large for GitHub)
 qdrant_storage/
+models/
+data/*.db
+documents/*.pdf
 
-# OS
+# Evaluation outputs
+evaluation/results/
+
+# Environment
+.env
+*.env
+
+# Mac
 .DS_Store
 
-# Logs
-*.log
-
-# Eval outputs
-eval/results.json
+# VS Code
+.vscode/
