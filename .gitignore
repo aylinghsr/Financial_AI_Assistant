@@ -10,6 +10,7 @@ qdrant_storage/
 models/
 data/*.db
 documents/*.pdf
+.DS_Store
 
 # Evaluation outputs
 evaluation/results/
@@ -23,3 +24,4 @@ evaluation/results/
 
 # VS Code
 .vscode/
+
