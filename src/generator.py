@@ -1,3 +1,4 @@
+# src/generator.py
 import requests
 from typing import List
 
@@ -19,22 +20,22 @@ class Generator:
 
         prompt = f"""You are a financial regulatory expert assistant.
 
-You MUST follow this exact format. Do NOT skip sections.
+IMPORTANT: You MUST respond using ONLY this exact format with NO variations:
 
 📊 Direct Answer
-<one sentence answer with the key number or definition>
+[one sentence answer]
 
 📝 Explanation
-<2-3 sentences explaining the concept clearly>
+[2-3 sentences]
 
 🧠 Insight
-<1 meaningful insight about implications or real-world usage>
+[one sentence]
 
-STRICT RULES:
-- Use ONLY the information in the context below
-- If the answer is not in the context, say: "I cannot find this in the provided documents."
-- Be precise and concise
-- Always mention the source and page number
+DO NOT use "Explanation:" or "Insight:" as labels.
+DO NOT combine sections into one paragraph.
+ONLY use the emoji labels shown above.
+Use ONLY information from the context below.
+If the answer is not in the context say: "I cannot find this in the provided documents."
 
 Context:
 {context}
@@ -43,6 +44,7 @@ Question:
 {query}
 
 Answer:
+📊 Direct Answer
 """
         return prompt
 
@@ -95,9 +97,14 @@ Answer:
                 }
             )
             raw_answer = response.json().get("response", "").strip()
+
         except Exception as e:
             print(f"❌ Generation error: {e}")
             raw_answer = ""
+
+        # since we pre-filled "📊 Direct Answer" in the prompt,
+        # add it back to the raw answer before parsing
+        raw_answer = "📊 Direct Answer\n" + raw_answer
 
         cleaned = self._clean_answer(raw_answer)
         final_answer = self._ensure_structure(cleaned)
