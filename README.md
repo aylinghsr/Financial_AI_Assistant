@@ -189,4 +189,4 @@ ML engineering skills:
 ## Author
 
 Aylin Gheisar
-[LinkedIn](https://www.linkedin.com/in/aylin-gheisar) | aylinghsr@gmail.com
+[LinkedIn](https://www.linkedin.com/in/aylingheisar) | aylinghsr@gmail.com
